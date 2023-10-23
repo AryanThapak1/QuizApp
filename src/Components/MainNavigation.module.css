@@ -1,0 +1,46 @@
+.nav
+{
+    text-align: center;
+    width: auto;
+    /* margin-bottom: 1rem; */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
+}
+
+.nav .input
+{
+    padding: 0.5rem;
+    outline: none;
+
+}
+
+.nav button
+{
+     border: none;
+    border-radius: 6px;
+    align-self: center;
+    padding: 10px;
+    width: 8rem;
+    background-color: #212529;
+    color: #ffd43b;
+}
+
+.nav h1
+{
+    margin-left: 2rem;
+}
+
+.code
+{
+    margin-right: 2rem;
+}
+
+.img
+{
+    height: 4rem;
+}
+
+

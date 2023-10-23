@@ -1,0 +1,17 @@
+.LoginBar
+{
+   
+    text-align: center;
+    width: auto;
+    margin-bottom: 1rem;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #000;
+}
+
+.LoginBar a:link,.LoginBar a:visited
+{
+    border: none;
+}
