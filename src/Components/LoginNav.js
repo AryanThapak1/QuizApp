@@ -8,9 +8,10 @@ const LoginNav=()=>
    }
    return(
     <nav className={classes.LoginBar}>
-        <Link to=''>Home</Link>
+        <Link to='Home'>Home</Link>
         <Link to='create'>Create Quiz</Link>
         <Link to='manage'>Manage Quiz</Link>
+        <Link to='students'>Manage Student</Link>
         <Link to='/' onClick={logoutHandler}>Logout</Link>
     </nav>
    )

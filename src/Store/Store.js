@@ -1,7 +1,9 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 
 const initialState={
-    questions:[]
+    questions:[],
+    quiz:'',
+    quizCode:''
 };
 
 const questionSlice = createSlice({
@@ -10,7 +12,15 @@ const questionSlice = createSlice({
     reducers: {
         addQuestion: (state, action) => {
             state.questions.push(action.payload);
-          }
+          },
+        addQuiz:(state,action)=>{
+          state.quiz=action.payload;
+        },
+        addQuizCode:(state,action)=>
+        {
+            state.quizCode=action.payload;
+        }
+       
     }
 });
 

@@ -9,8 +9,8 @@ const StudentNav=()=>
    }
    return(
     <nav className={classes.LoginBar}>
-        <Link to=''>Home</Link>
-        <Link to=''>Analytics</Link>
+        <Link to='Home'>Home</Link>
+        <Link to='Analytics'>Analytics</Link>
         <Link to='Quiz'>Attempt Quiz</Link>
         <Link to='/' onClick={logoutHandler}>Logout</Link>
     </nav>

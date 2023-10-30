@@ -1,0 +1,141 @@
+/* Quiz.module.css */
+
+.quizContainer {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.quizButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.quizButton:hover {
+  background-color: #45a049;
+}
+
+.quizForm {
+  margin-top: 20px;
+}
+
+.formLabel {
+  font-size: 16px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.formInput {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 16px;
+}
+
+.formButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.formButton:hover {
+  background-color: #45a049;
+}
+
+.quizButton,
+.formButton {
+  margin-top: 20px;
+  margin-right: 10px; /* Add right margin for spacing between buttons */
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block; /* Display buttons inline */
+}
+
+.quizButton:hover,
+.formButton:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.formButton.secondary {
+  background-color: #f39c12;
+}
+
+.formButton.secondary:hover {
+  background-color: #d35400;
+}
+
+/* Responsive Media Queries */
+/* Quiz.module.css */
+
+/* ... Rest of your styles ... */
+
+@media (max-width: 768px) {
+  .quizContainer {
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  .question {
+    font-size: 16px;
+  }
+
+  .quizButton,
+  .formButton {
+    font-size: 14px;
+    padding: 10px 20px;
+    margin-right: 0; /* Remove right margin for buttons on smaller screens */
+  }
+
+  .formLabel,
+  .formInput,
+  .formButton {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .question {
+    font-size: 14px;
+  }
+
+  .quizButton,
+  .formButton {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .formLabel,
+  .formInput,
+  .formButton {
+    font-size: 12px;
+  }
+}

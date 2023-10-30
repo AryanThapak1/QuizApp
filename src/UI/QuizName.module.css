@@ -3,14 +3,14 @@
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 100vh;
 }
 
 .formContainer {
     width: 100%;
-    max-width: 400px;
-    padding: 30px;
+    max-width: 300px;
+    padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
@@ -25,7 +25,6 @@
     text-align: left;
 }
 
-.formContainer textarea,
 .formContainer input[type="text"] {
     width: calc(100% - 20px);
     margin-bottom: 20px;
@@ -37,24 +36,8 @@
     transition: border-color 0.3s;
 }
 
-.formContainer textarea:focus,
 .formContainer input[type="text"]:focus {
     border-color: #9775fa;
-}
-
-.formContainer .options {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    align-items: center;
-}
-
-.formContainer .options input[type="text"] {
-    flex: 1;
-}
-
-.formContainer .options input[type="radio"] {
-    margin-right: 10px;
 }
 
 .formContainer button {
@@ -76,5 +59,3 @@
 button:disabled {
     cursor: not-allowed;
 }
-
-

@@ -1,0 +1,23 @@
+/* ManageStudents.module.css */
+
+.list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .item {
+    margin-bottom: 10px;
+  }
+  
+  .link:link,.link:visited{
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    border: none;
+  }
+  
+  .link:hover {
+    color: #0056b3;
+  }
+   
