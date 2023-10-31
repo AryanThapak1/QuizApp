@@ -35,3 +35,35 @@
     cursor: pointer;
     transition: color 0.3s ease;
 }
+
+
+.formButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .formButton:hover {
+    background-color: #45a049;
+  }
+  
+  .quizButton,
+  .formButton {
+    margin-top: 20px;
+    margin-right: 10px; /* Add right margin for spacing between buttons */
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Display buttons inline */
+  }
+  

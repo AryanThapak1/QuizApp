@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { json, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "./AttemptQuiz.module.css"; // Import your CSS module
+import ConfirmBox from "../UI/ConfirmBox";
 
 const AttemptQuiz = () => {
   const { id } = useParams();
   const [quiz, setQuiz] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(1);
   const [selectedOptions, setSelectedOptions] = useState(new Array(quiz.length).fill(""));
-  const [obtainedMarks,setObtainedMarks]=useState(0);
   const [submitted, setSubmitted] = useState(false);
-
+  const [attempted,setAttempted]=useState(false);
+  const [showBox,setShowBox]=useState(false);
+  const navigate=useNavigate();
   const fetchData = async () => {
     const response = await fetch(`http://localhost:8080/api/v1/students/quiz/${id}`);
     const data = await response.json();
@@ -17,24 +19,17 @@ const AttemptQuiz = () => {
   };
 
   useEffect(() => {
+    if(submitted)
+    {
+        navigate('/student/analytics');
+    }
     fetchData();
-  }, [id]);
+  }, [id,submitted]);
 
   const handleOptionChange = (option) => {
     const updatedOptions = [...selectedOptions];
     updatedOptions[currentQuestionIndex] = option;
     setSelectedOptions(updatedOptions);
-    const correctOption =quiz[currentQuestionIndex].CorrectOption;
-
-    if (option === correctOption) {
-      setObtainedMarks(prevstate => prevstate + 1);
-    } else {
-      setObtainedMarks(prevstate => prevstate - 1);
-    }
-
-    console.log(option)
-    console.log(correctOption)
-    console.log(obtainedMarks)
   };
 
   const handleNext = () => {
@@ -51,20 +46,46 @@ const AttemptQuiz = () => {
 
   const handleSubmit = async() => {
     
+     let obtainedMarks=0;
+     for(var i=1;i<quiz.length;i++)
+     {
+        if(selectedOptions[i]===quiz[i].CorrectOption)
+        {
+             obtainedMarks++;
+        }
+     }
+
+     obtainedMarks=obtainedMarks*100/(quiz.length-1);
+
     const response = await fetch(`http://localhost:8080/api/v1/students/quiz/${id}`,{
         method:"POST",
         body:JSON.stringify({
-            username:localStorage.getItem('token'),
+            quizName:id,
+            username:sessionStorage.getItem('token'),
             obtainedMarks,
-            totalMarks:quiz.length
+            totalMarks:quiz.length-1,
+            attempted:true
         }),
         headers:{
             "Content-Type":"application/json"
         }
     });
-    const data = await response.json();
+
+    if(!response.ok){
+      setAttempted(true);
+      return;
+    }
+
     setSubmitted(true);
   };
+  
+  const showBoxHandler=()=>{
+    setShowBox(true);
+  }
+
+  const hideBoxHandler=()=>{
+    setShowBox(false);
+  }
 
   if (quiz.length === 0) {
     return <div>Loading...</div>;
@@ -125,7 +146,9 @@ const AttemptQuiz = () => {
       <div className={styles.navigationButtons}>
         <button onClick={handlePrev} disabled={currentQuestionIndex === 1 || submitted}>Prev</button>
         {currentQuestionIndex < quiz.length - 1 && <button onClick={handleNext} disabled={submitted}>Next</button>}
-        {currentQuestionIndex === quiz.length - 1 && !submitted && <button onClick={handleSubmit}>Submit</button>}
+        {currentQuestionIndex === quiz.length - 1 && !submitted && <button onClick={showBoxHandler}>Submit</button>}
+        {attempted && <p className={styles.invalid}>Seems like you already attempted the quiz hence you can submit!</p>}
+        {showBox && <ConfirmBox message="Do you want to Submit ?" onConfirm={handleSubmit} onCancel={hideBoxHandler}/>}
       </div>
     </div>
   );

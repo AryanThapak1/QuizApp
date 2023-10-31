@@ -22,12 +22,25 @@ const Quiz = (props) => {
   
   const deleteHandler=async ()=>{
     const response = await fetch(`http://localhost:8080/api/v1/teachers/quiz/${id}`,{
-      method:"DELETE"
+      method:"DELETE",
+      body:JSON.stringify({id})
     })
    
     if(response.ok)
     {
       navigate('/teacher/manage')
+    }
+  }
+
+  const questionDeleteHandler=async(Question)=>{
+    const response = await fetch(`http://localhost:8080/api/v1/teachers/quiz/${id}/${Question}`,{
+      method:"DELETE",
+      body:JSON.stringify({id,Question})
+    })
+
+    if(response.ok)
+    {
+      window.location.reload();
     }
   }
   useEffect(()=>{
@@ -53,6 +66,7 @@ const Quiz = (props) => {
           Option4={el.Option4}
           name={el.Question}
           className={styles.question} // Apply question class
+           deleteHandler={questionDeleteHandler}
         />
       )})}
      

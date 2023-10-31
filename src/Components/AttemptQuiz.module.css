@@ -37,6 +37,10 @@
   .navigationButtons button:not(:last-child) {
     margin-right: 10px;
   }
+
+  .invalid{
+    color:red;
+  }
   
   /* Add more styles as needed */
   

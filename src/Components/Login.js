@@ -13,7 +13,7 @@ const Login = (props) => {
     if (access) {
       navigate(`/${type}/home`);
     }
-  }, []);
+  },);
 
   return (
     <div>
@@ -42,7 +42,7 @@ const Login = (props) => {
               <input type="checkbox" onClick={teacherCheckHandler}/>
               <label> Are you a teacher</label>
             </div>
-            {invalid && <p>Wrong email or password</p>}
+            {invalid && <p className={classes.invalid}>Wrong email or password</p>}
           </form>
           <NavLink to="SignUp" className={classes.signup}>
             Sign Up ?

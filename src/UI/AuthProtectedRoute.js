@@ -1,14 +1,25 @@
-import React from 'react';
-import { Route, Navigate, Routes } from 'react-router-dom';
+import { redirect } from "react-router-dom";
 
-const AuthProtectedRoute = ({ element: Element, ...rest }) => {
-  const isAuthenticated = sessionStorage.getItem("token");
-
-  if (!isAuthenticated) {
-    return <Navigate to="/" replace />;
+const getToken=()=>{
+  const token=sessionStorage.getItem('token');
+  return token;
+}
+const checkToken=()=>{
+  if(getToken())
+  {
+    return true;
   }
 
-  return <Route {...rest} element={<Element />} />;
-};
+  return false;
+}
+export function loader(){
+   
+  if(!checkToken())
+   {
+    return redirect('/');
+   }
 
-export default AuthProtectedRoute;
+   else{
+    return true;
+   }
+}

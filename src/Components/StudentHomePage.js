@@ -7,7 +7,7 @@ const StudentHomePage = () => {
 
     const startedHandler=()=>
     {
-        navigate('/Analytics')
+        navigate('/Student/Quiz')
     }
     return (
         <div className={classes.homeContainer}>

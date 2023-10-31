@@ -12,9 +12,10 @@ import Quiz from "./Components/Quiz";
 import StudentHomePage from "./Components/StudentHomePage";
 import ManageStudents from "./Components/ManageStudents";
 import ManageQuiz from "./Components/ManageQuiz";
-import AuthProtectedRoute from "./UI/AuthProtectedRoute";
+import {loader as authProtector} from './UI/AuthProtectedRoute'
 import QuizCode from "./Components/QuizCode";
 import AttemptQuiz from "./Components/AttemptQuiz";
+import AnalyticsComponent from "./Components/Analytics";
 function App() {
   const router = createBrowserRouter([
     {
@@ -41,6 +42,7 @@ function App() {
           path:"Teacher/",
           element:
           <NewRoot />,
+          loader:authProtector,
           children:[
             {
               path:"Home",
@@ -72,6 +74,7 @@ function App() {
         {
           path:'Student/',
           element:<StudentRoot/>,
+          loader:authProtector,
           children:[
             {
               path:'Home',
@@ -84,6 +87,10 @@ function App() {
             {
               path:'Quiz/:id',
               element:<AttemptQuiz/>
+            },
+            {
+              path:"Analytics",
+              element:<AnalyticsComponent/>
             }
           ]
         }

@@ -3,7 +3,9 @@ import styles from "./Question.module.css";
 
 
 const Question = (props) => {
-
+     const deleteHandler=()=>{
+        props.deleteHandler(props.Question)
+     }
 
     return (
         <div className={styles.questionContainer}>
@@ -26,6 +28,7 @@ const Question = (props) => {
                     {props.Option4}
                 </label>
             </div>
+            <button className={styles.formButton} onClick={deleteHandler}>Delete</button>
         </div>
     );
 };
