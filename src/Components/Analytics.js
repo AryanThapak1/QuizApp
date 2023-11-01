@@ -3,13 +3,15 @@ import React, { useEffect, useState } from 'react';
 import { Bar,Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 import styles from './Analytics.module.css';
+import { useParams } from 'react-router-dom';
 
 Chart.register(...registerables);
 
-const Analytics = () => {
+const Analytics = (props) => {
   const [labels, setLabels] = useState([]);
   const [data, setData] = useState([]);
-  const id = sessionStorage.getItem('token');
+  const {name}=useParams()
+  const id = name ||sessionStorage.getItem('token');
 
   const fetchdata = async () => {
     const response = await fetch(`http://localhost:8080/api/v1/students/analytics/${id}`);

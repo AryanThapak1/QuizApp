@@ -16,6 +16,7 @@ import {loader as authProtector} from './UI/AuthProtectedRoute'
 import QuizCode from "./Components/QuizCode";
 import AttemptQuiz from "./Components/AttemptQuiz";
 import AnalyticsComponent from "./Components/Analytics";
+import Analytics from "./Components/Analytics";
 function App() {
   const router = createBrowserRouter([
     {
@@ -64,10 +65,12 @@ function App() {
             {
               path:"students",
               element:<ManageStudents/>,
-              children:[{
-                path:":name",
-                element:<HomePage/>
-              }]
+            },
+            {
+              
+                path:"students/:name",
+                element:<Analytics/>
+              
             }
           ]
         },
