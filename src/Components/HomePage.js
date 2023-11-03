@@ -34,6 +34,7 @@ const HomePage = () => {
                 <p>Ready to enhance your teaching experience?</p>
                 <button className={classes.startButton} onClick={startedHandler}>Get Started</button>
             </div>
+
         </div>
     );
 }

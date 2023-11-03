@@ -1,66 +1,98 @@
 .homeContainer {
     text-align: center;
     padding: 50px;
+
 }
 
 .heading {
-    font-size: 36px;
-    margin-bottom: 20px;
+    font-size: 48px;
+    margin-bottom: 30px;
+    color: #007BFF; 
 }
 
 .description {
-    font-size: 18px;
+    font-size: 20px;
     color: #555;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
+    font-weight: 600;
 }
 
 .features {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 }
 
 .feature {
     width: 300px;
     margin: 0 20px 30px;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    transition: box-shadow 0.3s;
+    padding: 30px;
+    background-color: #228be6; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-weight: 600;
 }
 
+
 .feature:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 .icon {
-    font-size: 36px;
+    font-size: 48px;
     color: #007BFF;
     margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.feature:hover .icon {
+    color: #0056b3; /* Darker blue color on hover */
 }
 
 h2 {
-    font-size: 24px;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333; /* Dark text color for headings */
+    transition: all 0.3s ease;
+}
+
+
+
+.cta {
+    margin-top: 60px;
+    animation: fadeInUp 1s both;
+    color: #fff;
+}
+
+.cta p{
     margin-bottom: 10px;
 }
 
-.cta {
-    margin-top: 40px;
-}
-
 .startButton {
-    background-color: #007BFF;
+    background-color: #007bffca;
     color: #fff;
-    padding: 15px 30px;
+    padding: 20px 40px;
     border: none;
-    border-radius: 5px;
-    font-size: 18px;
+    border-radius: 10px;
+    font-size: 24px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .startButton:hover {
     background-color: #0056b3;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

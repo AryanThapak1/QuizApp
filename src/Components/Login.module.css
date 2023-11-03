@@ -9,7 +9,10 @@
 body
 {
     font-size: 100%;
-    /* background-color: #495057; */
+    font-family: Arial, sans-serif;
+    background-image: url('./../Images/download.png');
+    background-size: 200rem;
+    background-repeat: no-repeat;
 }
 
 body {
@@ -88,6 +91,43 @@ body {
 .invalid{
     color: #ff0000;
 }
+/* Login.module.css */
+
+.footer {
+    background-color: #212529;
+    color: #ffd43b;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.footerDiv {
+    margin-bottom: 1rem;
+}
+
+.footerLink:link {
+    color: #ffd43b;
+    text-decoration: none;
+    border: none;
+    margin: 0 0.5rem;
+}
+
+.footerLink:hover {
+    text-decoration: underline;
+}
+
+.footerLink:link,
+.footerLink:visited {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+
+
+
 @media (max-width: 768px) {
    .homepage{
     font-size: 62.5%;

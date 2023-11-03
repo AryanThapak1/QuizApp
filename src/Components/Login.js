@@ -13,10 +13,11 @@ const Login = (props) => {
     if (access) {
       navigate(`/${type}/home`);
     }
-  },);
+  });
 
   return (
     <div>
+     
       <div className={classes.homepage}>
         <div className={classes.container}>
           <h1>Welcome to QuizWiz</h1>
@@ -50,6 +51,19 @@ const Login = (props) => {
         </div>
         <img src={homeImage} alt="some quiz" className={classes.img} />
       </div>
+      <footer className={classes.footer}>
+        <div className={classes.footerDiv}>
+          <p>Stay Connected:</p>
+        </div>
+        <div className={classes.footerDiv}>
+          <p>Contact Information:</p>
+          <p>
+            Email: <a href="mailto:support@quizwiz.com" className={classes.footerLink}>support@quizwiz.com</a>
+          </p>
+          <p>Phone: 123-456-7890</p>
+        </div>
+        <p>&copy; 2023 QuizWiz. All rights reserved.</p>
+      </footer>
     </div>
   );
 };
