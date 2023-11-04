@@ -33,7 +33,7 @@ const QuizCode = (props) => {
 
   }; 
   const quizCode=useSelector(state=>state.quizCode);
-
+  
   useEffect(()=>{
       if(quizCode.length>0)
       {

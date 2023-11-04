@@ -3,7 +3,8 @@ import { configureStore, createSlice } from '@reduxjs/toolkit'
 const initialState={
     questions:[],
     quiz:'',
-    quizCode:''
+    quizCode:'',
+    quizCompletion:false
 };
 
 const questionSlice = createSlice({
@@ -19,7 +20,11 @@ const questionSlice = createSlice({
         addQuizCode:(state,action)=>
         {
             state.quizCode=action.payload;
+        },
+        setQuizCompletion:(state,action)=>{
+            state.quizCompletion=action.payload
         }
+
        
     }
 });

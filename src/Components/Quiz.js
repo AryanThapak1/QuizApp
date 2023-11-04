@@ -7,6 +7,8 @@ import { questionActions } from "../Store/Store";
 import Form from "../UI/Form";
 const Quiz = (props) => {
   const [question,setQuestions]=useState([]);
+  const [showForm,setShowForm]=useState(false);
+  const [file, setFile] = useState(null);
   const {id}=useParams();
   const dispatch=useDispatch();
   const navigate=useNavigate();
@@ -15,11 +17,30 @@ const Quiz = (props) => {
    const data=await response.json();
    setQuestions(data)
   }
+
+  const onFileChange = (event) => {
+    setFile(event.target.files[0]);
+  };
+
+  const importHandler=async(event)=>{
+    event.preventDefault();
+    const formData = new FormData();
+    formData.append('pdf_file', file);
+    const response=await fetch('http://localhost:8080/api/v1/teachers/quiz/upload',{
+      method:"POST",
+      body:formData
+    })
+
+  }
   const quizSaveHandler=()=>
   {
      setTimeout(()=>{navigate('/teacher/manage')},3000);
   }
   
+  const showFormHandler=()=>{
+    setShowForm(prevState=>!prevState);
+  }
+
   const deleteHandler=async ()=>{
     const response = await fetch(`http://localhost:8080/api/v1/teachers/quiz/${id}`,{
       method:"DELETE",
@@ -69,13 +90,16 @@ const Quiz = (props) => {
            deleteHandler={questionDeleteHandler}
         />
       )})}
-     
-      <Form/>
+      <form className={styles.uploadForm}>
+      <input type="file" name="pdfInput" accept=".pdf" onChange={onFileChange}/>
+      <button className={styles.formButton} onClick={importHandler}>Import From Pdf</button>
+      </form>
+       <button className={`${styles.formButton} ${styles.toggleButton}`} onClick={showFormHandler}> {showForm ?"Hide":"Show"} Form</button>
+      {showForm && <Form/>}
         <button className={styles.formButton} onClick={quizSaveHandler}>Save</button>
         <button className={styles.formButton} onClick={deleteHandler}>Delete</button>
     </div>
-    
-    
+
   );
 };
 

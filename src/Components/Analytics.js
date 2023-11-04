@@ -22,6 +22,8 @@ const Analytics = (props) => {
     setData(newData);
   };
 
+  
+
   useEffect(() => {
     fetchdata();
   }, []);
@@ -41,6 +43,7 @@ const Analytics = (props) => {
           'Brown',
         ],
         data,
+        borderColor:"indigo"
       },
     ],
   };
