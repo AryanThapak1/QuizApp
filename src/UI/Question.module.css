@@ -11,7 +11,7 @@
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 15px;
-    color: #4CAF50;
+    color: white;
 }
 
 .optionsContainer {
@@ -24,6 +24,7 @@
     font-size: 18px;
     display: flex;
     align-items: center;
+    font-weight: 600;
 }
 
 .radioInput {
@@ -58,7 +59,7 @@
     margin-right: 10px; /* Add right margin for spacing between buttons */
     padding: 12px 24px;
     font-size: 16px;
-    background-color: #4caf50;
+    background-color: #014683;
     color: white;
     border: none;
     border-radius: 5px;

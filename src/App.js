@@ -17,6 +17,7 @@ import QuizCode from "./Components/QuizCode";
 import AttemptQuiz from "./Components/AttemptQuiz";
 import AnalyticsComponent from "./Components/Analytics";
 import Analytics from "./Components/Analytics";
+import './app.css'
 function App() {
   const router = createBrowserRouter([
     {

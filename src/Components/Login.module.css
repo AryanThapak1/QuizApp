@@ -10,8 +10,8 @@ body
 {
     font-size: 100%;
     font-family: Arial, sans-serif;
-    background-image: url('./../Images/download.png');
-    background-size: 200rem;
+    background-image: url('./../Images/download3.png');
+    background-size: cover ;
     background-repeat: no-repeat;
 }
 

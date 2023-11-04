@@ -4,6 +4,7 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
+  
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -18,7 +19,7 @@
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #4caf50;
+  background-color: #228be6e7;
   color: white;
   border: none;
   border-radius: 5px;
@@ -70,7 +71,7 @@
   margin-right: 10px; /* Add right margin for spacing between buttons */
   padding: 12px 24px;
   font-size: 16px;
-  background-color: #4caf50;
+  background-color: #014683;
   color: white;
   border: none;
   border-radius: 5px;

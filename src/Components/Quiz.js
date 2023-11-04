@@ -50,7 +50,7 @@ const Quiz = (props) => {
 
   const empty=question.length===0;
   return (
-    <>
+  
     <div className={styles.quizContainer}>
       {question.map((el) =>{ 
         if(!el.Question)
@@ -74,7 +74,7 @@ const Quiz = (props) => {
         <button className={styles.formButton} onClick={quizSaveHandler}>Save</button>
         <button className={styles.formButton} onClick={deleteHandler}>Delete</button>
     </div>
-    </>
+    
     
   );
 };
