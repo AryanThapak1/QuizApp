@@ -21,7 +21,7 @@ const QuizCode = (props) => {
     
     if (response.ok) {
       dispatch(questionActions.addQuizCode(quizref.current.value));
-      navigate(`/student/Quiz/${quizref.current.value}`);
+      navigate(`/student/quiz/${quizref.current.value}`);
       SetWrong(false);
     }
 

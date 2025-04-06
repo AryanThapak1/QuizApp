@@ -85,11 +85,11 @@ function App() {
               element:<StudentHomePage/>
             },
             {
-              path:'Quiz',
+              path:'quiz',
               element:<QuizCode/>
             },
             {
-              path:'Quiz/:id',
+              path:'quiz/:id',
               element:<AttemptQuiz/>
             },
             {

@@ -60,10 +60,11 @@ const TeacherRegistration = () => {
       college,
       course,
       subject,
+      role:"Teacher",
       branch,
     };
     const response = await fetch(
-      "https://react-7358c-default-rtdb.firebaseio.com/teacher.json",
+      "http://127.0.0.1:8080/api/v1/users/signup",
       {
         method: "POST",
         body: JSON.stringify(data),

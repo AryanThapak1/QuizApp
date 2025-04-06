@@ -1,0 +1,20 @@
+
+.loadingContainer {
+    width: 100%;
+    background-color: #f3f3f3;
+  }
+  
+  .loadingBar {
+    height: 4px;
+    width: 0;
+    background-color: #3498db;
+    animation: loading 2s infinite;
+  }
+  
+  @keyframes loading {
+    0% { width: 0; }
+    50% { width: 50%; }
+    99%{width: 99%;}
+    100% { width: 0; }
+  }
+  

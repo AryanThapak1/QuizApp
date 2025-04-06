@@ -21,6 +21,7 @@ const AttemptQuiz = () => {
       `http://localhost:8080/api/v1/students/quiz/${id}`
     );
     const data = await response.json();
+    console.log(data);
     setQuiz(data);
   };
 

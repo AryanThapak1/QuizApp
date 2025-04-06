@@ -32,7 +32,7 @@
 }
 
 .optionLabel:hover {
-    color: #4CAF50;
+   
     cursor: pointer;
     transition: color 0.3s ease;
 }
@@ -50,7 +50,7 @@
   }
   
   .formButton:hover {
-    background-color: #45a049;
+    background-color: #045aa5;
   }
   
   .quizButton,

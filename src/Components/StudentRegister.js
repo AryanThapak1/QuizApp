@@ -51,13 +51,13 @@ const StudentRegister = () => {
       email,
       phone,
       password,
-      confirm,
       college,
       branch,
       course,
+      role:"Student"
     };
     const response = await fetch(
-      "https://react-7358c-default-rtdb.firebaseio.com/student.json",
+      "http://127.0.0.1:8080/api/v1/users/signup",
       {
         method: "POST",
         body: JSON.stringify(data),

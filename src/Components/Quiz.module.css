@@ -101,6 +101,10 @@
   background-color: #d35400;
 }
 
+.invalid{
+  color: red;
+}
+
 /* Responsive Media Queries */
 /* Quiz.module.css */
 

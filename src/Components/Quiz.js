@@ -1,21 +1,28 @@
 import React, { useEffect, useState } from "react";
 import Question from "../UI/Question";
-import { useNavigate, useParams } from "react-router-dom";
+import { createSearchParams, useNavigate, useParams } from "react-router-dom";
 import styles from "./Quiz.module.css"; // Import the CSS module
 import { useDispatch } from "react-redux";
 import { questionActions } from "../Store/Store";
 import Form from "../UI/Form";
+import LoadingBar from "../UI/LoadingBar";
 const Quiz = (props) => {
   const [question,setQuestions]=useState([]);
   const [showForm,setShowForm]=useState(false);
   const [file, setFile] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [failed,setFailed]=useState(false);
   const {id}=useParams();
   const dispatch=useDispatch();
   const navigate=useNavigate();
   const fetchData=async ()=>{
+    try{
    const response=await fetch(`http://localhost:8080/api/v1/teachers/quiz/${id}`);
    const data=await response.json();
-   setQuestions(data)
+   setQuestions(data)}
+   catch(err){
+    setFailed(true);
+   }
   }
 
   const onFileChange = (event) => {
@@ -24,14 +31,30 @@ const Quiz = (props) => {
 
   const importHandler=async(event)=>{
     event.preventDefault();
+    setIsLoading(true);
     const formData = new FormData();
     formData.append('pdf_file', file);
-    const response=await fetch('http://localhost:8080/api/v1/teachers/quiz/upload',{
+   
+    const response=await fetch(`http://localhost:8080/api/v1/teachers/quiz/upload?quizName=${id}`,{
       method:"POST",
       body:formData
     })
+    setTimeout(()=>{
+      setIsLoading(false);
+    },5000)
+    
+    if(response.ok){
+      window.location.reload();
+    }
 
+    else
+    {
+      setFailed(true);
+      setIsLoading(false);
+    }
   }
+
+  
   const quizSaveHandler=()=>
   {
      setTimeout(()=>{navigate('/teacher/manage')},3000);
@@ -42,6 +65,7 @@ const Quiz = (props) => {
   }
 
   const deleteHandler=async ()=>{
+    try{
     const response = await fetch(`http://localhost:8080/api/v1/teachers/quiz/${id}`,{
       method:"DELETE",
       body:JSON.stringify({id})
@@ -50,13 +74,21 @@ const Quiz = (props) => {
     if(response.ok)
     {
       navigate('/teacher/manage')
+    }}
+    catch{
+      setFailed(true);
     }
   }
 
   const questionDeleteHandler=async(Question)=>{
+    try{
     const response = await fetch(`http://localhost:8080/api/v1/teachers/quiz/${id}/${Question}`,{
       method:"DELETE",
-      body:JSON.stringify({id,Question})
+      body:JSON.stringify({id,Question}),
+      headers:
+      {
+        'Content-Type':"application/json"
+      }
     })
 
     if(response.ok)
@@ -64,6 +96,10 @@ const Quiz = (props) => {
       window.location.reload();
     }
   }
+  catch(err){
+    setFailed(false);
+  }
+}
   useEffect(()=>{
     dispatch(questionActions.addQuiz(id))
     fetchData()
@@ -73,6 +109,8 @@ const Quiz = (props) => {
   return (
   
     <div className={styles.quizContainer}>
+      {isLoading && <LoadingBar />}
+      {failed && <p className={styles.invalid}>There has been some error please try again</p>}
       {question.map((el) =>{ 
         if(!el.Question)
         {
